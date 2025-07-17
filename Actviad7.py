@@ -7,7 +7,7 @@ def registrar_estudiantes(estudiantes):
 
     for _ in range(cantida):
         print("Registrando estudiante...")
-        carnet=input("Carnet: ").stringp()
+        carnet=input("Carnet: ")
         if carnet in estudiantes:
             print("El carnet ingresado ya existe. Intente nuevamente")
             continue
@@ -92,9 +92,23 @@ def buscar_carnet (estudiantes):
 
 
 def menu():
-    while true:
+    estudiantes={}
+    while True:
         print("\n ___ Menu ___")
         print("1. Registrar Estudiantes")
         print("2. Mostrar Estuiantes y cursos")
         print("3. Buscar estuiante por carnet")
         print("4. Salir")
+        opcion=input("Seleccione una opcion: ")
+        if opcion=="1":
+            registrar_estudiantes(estudiantes)
+        if opcion=="2":
+            mostrar_estudiantes(estudiantes)
+        if opcion=="3":
+            buscar_carnet(estudiantes)
+        if opcion=="4":
+            print("Gracias por usar el programa!")
+        else:
+            print("Opcion invalida")
+
+menu()
