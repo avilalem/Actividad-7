@@ -1,5 +1,3 @@
-from operator import truediv
-
 def registrar_estudiantes(estudiantes):
     try:
         cantida=int(input("Cuantos estudiantes desea registrar?:"))
