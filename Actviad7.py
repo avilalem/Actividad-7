@@ -12,7 +12,7 @@ def registrar_estudiantes(estudiantes):
             print("El carnet ingresado ya existe. Intente nuevamente")
             continue
         nombre=input("Nombre Completo: ")
-        try
+        try:
             edad=int(input("Edad: "))
         except ValueError:
             print("Ingrese un numero valido")
@@ -28,12 +28,12 @@ def registrar_estudiantes(estudiantes):
         for i in range (num_cursos):
             print(f"Curso {i+1}:")
             nombre_curso=input("Nombre Curso: ").strip()
-            def pedir_nota(titulo)
+            def pedir_nota(titulo):
                 while True:
                     nota=float(input("Nota: "))
                     if 0<=nota<=100:
                         return nota
-                    else
+                    else:
                         print("Ingrese un numero valido")
             tarea=pedir_nota("Nota de tarea: ")
             parcial=pedir_nota("Nota de parcial: ")
@@ -60,7 +60,31 @@ def mostrar_estudiantes(estudiantes):
         cursos=datos.get["cursos",{}]
         if cursos:
             for curso, notas in cursos.items():
-                print(f"")
+                print(f"Curso: {curso}")
+                print(f"Notas de tarea: {notas['tarea']}")
+                print(f"Notas de parcial: {notas['parcial']}")
+                print(f"Notas de proyecto: {notas['proyecto']}")
+        else:
+            print("No tiene cursos registrados ")
+
+def buscar_carnet (estudiantes):
+    carnet=input("Ingrese el numero de carnet que desea buscar: ").strip()
+    estudiante=estudiantes[carnet]
+    if estudiante:
+        print(f"Nombre: {estudiante['nombre']} - Edad: {estudiante['edad']} - Carrera: {estudiante['carrera']}")
+        cursos=estudiante.get("cursos",{})
+        if cursos:
+            for curso, notas in cursos.items():
+                promedio=(notas['tarea']+notas['parcial']+notas['proyecto'])/3
+                print(f"Curso: {cursos}")
+                print(f"Notas de tarea: {notas['tarea']}")
+                print(f"Notas de parcial: {notas['parcial']}")
+                print(f"Notas de proyecto: {notas['proyecto']}")
+                print(f"Promedio: {promedio}")
+        else:
+            print("No tiene cursos registrados ")
+    else:
+        print("No hay estudiantes registrados ")
 
 
 
