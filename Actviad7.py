@@ -18,10 +18,56 @@ def registrar_estudiantes(estudiantes):
             print("Ingrese un numero valido")
             return
         carrera=input("Carrera: ")
-        try
+        try:
+            num_cursos=int(input("Cuantos cursos desea registrar?: "))
+        except ValueError:
+            print("Ingrese un numero valido")
+            return
+
+        cursos={}
+        for i in range (num_cursos):
+            print(f"Curso {i+1}:")
+            nombre_curso=input("Nombre Curso: ").strip()
+            def pedir_nota(titulo)
+                while True:
+                    nota=float(input("Nota: "))
+                    if 0<=nota<=100:
+                        return nota
+                    else
+                        print("Ingrese un numero valido")
+            tarea=pedir_nota("Nota de tarea: ")
+            parcial=pedir_nota("Nota de parcial: ")
+            proyecto=pedir_nota("Nota de proyecto: ")
+
+            cursos[nombre_curso]={
+                "tarea":tarea,
+                "parcial":parcial,
+                "proyecto":proyecto
+            }
+        estudiantes[carnet]={
+            "nombre":nombre,
+            "edad":edad,
+            "carrera":carrera,
+            "cursos":cursos
+        }
+def mostrar_estudiantes(estudiantes):
+    if not estudiantes:
+        print("No hay estudiantes registrados")
+        return
+    print("Lista de estudiantes:")
+    for carnet, datos in estudiantes.items():
+        print(f"Carnet: {carnet} - Nombre: {datos['nombre']} - Edad: {datos['edad']} - Carrera: {datos['carrera']}")
+        cursos=datos.get["cursos",{}]
+        if cursos:
+            for curso, notas in cursos.items():
+                print(f"")
+
+
+
+
+
 
 def menu():
-    sistema=SistemaEstudiante()
     while true:
         print("\n ___ Menu ___")
         print("1. Registrar Estudiantes")
